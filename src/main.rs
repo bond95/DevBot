@@ -17,8 +17,8 @@ lazy_static! {
 enum Command {
     #[command(description = "display this text.")]
     Help,
-    #[command(description = "handle a username.")]
-    Username(String),
+    #[command(description = "add link to DB from parameter or from replied message")]
+    AddLink(String),
     #[command(description = "get all interesting links.")]
     GetLinks,
 }
@@ -45,9 +45,9 @@ async fn answer(
     }
     match command {
         Command::Help => cx.answer(Command::descriptions()).await?,
-        Command::Username(username) => {
-            if RE.is_match(&username) {
-                for cap in RE.captures_iter(&username) {
+        Command::AddLink(message_text) => {
+            if RE.is_match(&message_text) {
+                for cap in RE.captures_iter(&message_text) {
                     DB.lock().unwrap().execute(
                         "INSERT INTO interesting_links (link) VALUES (?1)",
                         params![&cap[1]],
