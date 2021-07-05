@@ -1,0 +1,17 @@
+[package]
+name = "dev_bot"
+version = "0.1.0"
+authors = ["Bohdan Iakymets <cyberbond95@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version =  "1.3.0", features = ["rt-multi-thread", "macros"] }
+log = "0.4.8"
+pretty_env_logger = "0.4.0"
+teloxide = { version = "0.4", features = ["auto-send", "macros"] }
+rusqlite = "0.25.3"
+lazy_static = "1.4.0"
+regex = "1"
+if_chain = "1.0.1"
