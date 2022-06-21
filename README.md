@@ -11,4 +11,4 @@ RUST_LOG=info cargo run
 ```
 ## Logging:
 
-Logging can be enabled by adding `RUST_LOG` environment variable, set it to the minimum loggign level to show.
+Logging can be enabled by adding `RUST_LOG` environment variable, set it to the minimum logging level to show.
